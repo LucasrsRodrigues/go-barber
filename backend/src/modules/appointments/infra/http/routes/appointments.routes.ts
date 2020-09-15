@@ -11,7 +11,7 @@ const appointmentsRouter = Router();
 
 appointmentsRouter.use(ensureAuthenticated);
 // SoC: Separation of Concerns (separacao de preocupacao)
-const appointmentRepository = new AppointmentRepository();
+
 
 // appointmentsRouter.get('/', async (req, res) => {
 
@@ -22,6 +22,7 @@ const appointmentRepository = new AppointmentRepository();
 
 
 appointmentsRouter.post('/',async ( req, res )=>{
+   const appointmentRepository = new AppointmentRepository();
       const { provider_id, date } = req.body;
 
 
