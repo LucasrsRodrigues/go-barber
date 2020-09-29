@@ -42,7 +42,7 @@ describe('SendForgotPasswordEmail',() => {
          email: 'johndoe@example.com',
       });
 
-      expect(sendMail).toHaveBeenCalled();
+      await expect(sendMail).toHaveBeenCalled();
 
    });
 
@@ -67,7 +67,7 @@ describe('SendForgotPasswordEmail',() => {
          email: 'johndoe@example.com',
       });
 
-      expect(generateToken).toHaveBeenCalledWith(user.id);
+      await expect(generateToken).toHaveBeenCalledWith(user.id);
    });
 
 });
