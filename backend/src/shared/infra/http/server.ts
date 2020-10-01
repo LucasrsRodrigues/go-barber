@@ -1,7 +1,10 @@
 import 'reflect-metadata';
+import 'dotenv/config';
+
 import express, { Request, Response, NextFunction} from 'express';
-import 'express-async-errors';
 import cors from 'cors';
+import { errors } from 'celebrate';
+import 'express-async-errors';
 
 
 import routes from './routes';
@@ -18,6 +21,7 @@ app.use(express.json());
 app.use('/files', express.static(uploadConfig.uploadsFolder));
 app.use(routes);
 
+app.use(errors());
 
 app.use((err: Error, req: Request, res: Response, _: NextFunction ) => {
    if(err instanceof AppError){
