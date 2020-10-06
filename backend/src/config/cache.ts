@@ -1,21 +1,21 @@
-interface IMailConfig {
-   driver: 'ethereal' | 'ses';
+import { RedisOptions } from 'ioredis';
 
-   defaults: {
-     from: {
-       email: string;
-       name: string;
-     };
-   };
- }
+interface ICacheConfig {
+  driver: 'redis';
 
- export default {
-   driver: process.env.MAIL_DRIVER || 'ethereal',
+  config: {
+    redis: RedisOptions;
+  };
+}
 
-   defaults: {
-     from: {
-       email: 'diego@rocketseat.com.br',
-       name: 'Diego da Rocketseat',
-     },
-   },
- } as IMailConfig;
+export default {
+  driver: 'redis',
+
+  config: {
+    redis: {
+      host: process.env.REDIS_HOST,
+      port: process.env.REDIS_PORT,
+      password: process.env.REDIS_PASS || undefined,
+    },
+  },
+} as ICacheConfig;
