@@ -1,6 +1,6 @@
 <h3 align="center">
   <span style="background-color: #312E38">
-  <img alt="GoStack" src="assets/Logo.png" style="background-color: #312E38"/>
+  <img alt="GoStack" src="web/src/assets/logo.svg" style="background-color: #312E38"/>
   </span>
 </h3>
 
