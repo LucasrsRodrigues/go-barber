@@ -20,9 +20,7 @@ import api from '../../services/api';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-import {
- Container, Title, BackToSignIn, BackToSignInText
-} from './styles';
+import { Container, Title, BackToSignIn, BackToSignInText } from './styles';
 import logoImg from '../../assets/logo.png';
 import getValidationErrors from '../../utils/getValidationErrors';
 
@@ -83,7 +81,7 @@ const SignUp: React.FC = () => {
         enabled
       >
         <ScrollView
-          keyboardShouldPersistTaps="handle"
+          keyboardShouldPersistTaps="handled"
           contentContainerStyle={{ flex: 1 }}
         >
           <Container>
@@ -123,6 +121,7 @@ const SignUp: React.FC = () => {
                 textContentType="newPassword"
                 returnKeyType="send"
                 secureTextEntry
+                onSubmitEditing={() => formRef.current?.submitForm()}
               />
 
               <Button
@@ -130,7 +129,7 @@ const SignUp: React.FC = () => {
                   formRef.current?.submitForm();
                 }}
               >
-                Entrar
+                Cadastrar
               </Button>
             </Form>
           </Container>
